@@ -26,10 +26,13 @@ This can cause a _response delay of up to 30 seconds_ for the first request that
 ### 🔎 Improvements
 
 - Logging
-- More tests
+- Tests
+- Pagination
 - Filtering and searching
 
 ### 🏁 API Usage
+
+You can try it out here:
 
 [swagger](https://movies-catalog-api.onrender.com/api)
 
@@ -73,7 +76,7 @@ There are two set up, using npm or docker-compose. Next steps are common between
 
         $ docker-compose stop
 
-**To test successfully set up visit: http://localhost:8000**
+**To test successfully set up visit: http://localhost:3000**
 
 ### ☁️ Production environment
 
