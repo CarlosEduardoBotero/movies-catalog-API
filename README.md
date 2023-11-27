@@ -1,73 +1,95 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+## 🎯 Purpose
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Develop a movies API.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+### ❤️ Available on
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+https://movies-catalog-api.onrender.com
 
-## Installation
+**Note**: Web Services on the free plan are automatically spun down after 15 minutes of inactivity. When a new request for a free service comes in, **Render** spins it up again so it can process the request.
+This can cause a _response delay of up to 30 seconds_ for the first request that comes in after a period of inactivity.
 
-```bash
-$ npm install
-```
+---
 
-## Running the app
+### 🔧 Technologies used
 
-```bash
-# development
-$ npm run start
+- TypeScript
+- Nest.js
+- TypeORM
+- Swagger
+- Docker
+- Redis
+- PostgreSQL
 
-# watch mode
-$ npm run start:dev
+### 🔎 Improvements
 
-# production mode
-$ npm run start:prod
-```
+- Logging
+- Tests
+- Pagination
+- Filtering and searching
 
-## Test
+### 🏁 API Usage
 
-```bash
-# unit tests
-$ npm run test
+You can try it out here:
 
-# e2e tests
-$ npm run test:e2e
+[swagger](https://movies-catalog-api.onrender.com/api)
 
-# test coverage
-$ npm run test:cov
-```
+### Endpoints to be implemented:
 
-## Support
+- filter all avialable movies
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+      /v1/movies/?director=james%20cameron
 
-## Stay in touch
+- searching by movie name
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+      /v1/movies/search/?movie=titanic
 
-## License
+### ✨ Local environment set up
 
-Nest is [MIT licensed](LICENSE).
+There are two set up, using npm or docker-compose. Next steps are common between them.
+
+- Copy \_.env to .env:
+
+        $ cp _.env .env
+
+- Update .env file with the right values
+
+#### Using npm
+
+- Install dependencies using npm.
+
+        $ npm i
+
+- Run the development server executing:
+
+        $ npm run start:dev
+
+#### Using docker-compose
+
+- Execute:
+
+        $ docker-compose up -d build
+
+- To stop it execute:
+
+        $ docker-compose stop
+
+**To test successfully set up visit: http://localhost:3000**
+
+### ☁️ Production environment
+
+Set up with Docker deploy. Use the [Dockerfile](Dockerfile) file.
+
+To use [render](https://render.com/) connect your GitHub repository and allow automatic deploy by push.
+
+In server needs to configure this list of environment variables [\_.env](_.env).
+
+**Keep an eye on PORT value** It is required to deploy the app, Heroku and Render assign it automatically.
+
+On Render you can create Postgres Database and Redis instance for free.
+
+---
+
+⌨️ by [Carlos Botero](https://github.com/in/carlos-eduardo-botero/) 😊

@@ -15,6 +15,14 @@ async function bootstrap() {
     .setTitle('Catálogo de filmes')
     .setDescription('Catálogo de filmes API')
     .setVersion('1.0')
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      },
+      'access-token',
+    )
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
