@@ -20,4 +20,8 @@ export class UsersService {
     }
     return await this.usersRepository.save(createUserDto);
   }
+
+  async findOne(email: string): Promise<UserEntity | null> {
+    return this.usersRepository.findOneBy({ email });
+  }
 }
