@@ -39,15 +39,8 @@ RUN apk add --no-cache libc6-compat
 
 ENV NODE_ENV production
 
-# Re-create non-root user for Docker
-RUN addgroup --system --gid 1001 node
-RUN adduser --system --uid 1001 node
-
-# Copy only the necessary files
-COPY --chown=node:node --from=build /app/dist dist
-COPY --chown=node:node --from=build /app/node_modules node_modules
-
-# Set Docker as non-root user
-USER node
+# # Copy only the necessary files
+COPY --from=build /app/dist dist
+COPY --from=build /app/node_modules node_modules
 
 CMD ["node", "dist/main.js"]
